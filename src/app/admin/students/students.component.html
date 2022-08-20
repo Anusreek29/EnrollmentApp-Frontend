@@ -1,0 +1,43 @@
+<section id="students" class="container-fluid" *ngIf="adminCheck || employerCheck">
+  <div id="img-holder" class="row"></div>
+  <div id="title" class="container py-5 ">
+    <p class="h3 fw-bold text-center pb-4">{{title}}</p>
+
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Name</th>
+            <th>Qualification</th>
+            <th>Pass Out</th>
+            <th>Course</th>
+            <th>Exit Mark</th>
+            <th>Employment Status</th>
+            <th>Place</th>
+            <th *ngIf="adminCheck">Action</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let s of student">
+          <tr>
+            <th><i class="fa fa-user text-primary"></i></th>
+            <th>{{s.name}}</th>            
+            <td>{{s.qualification}}</td>            
+            <td>{{s.passout}}</td>            
+            <td>{{s.course}}</td>            
+            <td>{{s.exitmark}}</td>            
+            <td>{{s.employmentStatus}}</td>            
+            <td>{{s.address}}</td>            
+            <td *ngIf="adminCheck">
+              <a routerLink="/student/{{s._id}}" class="btn btn-sm btn-outline-primary text-center me-2" 
+                  (click)="viewStudent(s._id)">View</a>
+              <a class="btn btn-sm btn-outline-danger text-center me-2" (click)="editStudent(s._id)">Edit</a>
+              <a class="btn btn-sm btn-danger text-center" (click)="deleteStudent(s._id)">Delete</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>        
+</section>

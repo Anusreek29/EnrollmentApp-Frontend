@@ -1,0 +1,31 @@
+<section class="container-fluid">
+  <div class="container mt-5 py-5">
+    <div class="row justify-content-center">
+      <form id="loginForm" class="col-lg-4 border rounded p-0"
+        #userlogin='ngForm' (submit)="validateLogin(userlogin.value)">
+        <img src="../../assets/img/userlogin-banner.png" class="img-fluid img-animate pt-2" alt="">
+        
+        <div class="px-5 pb-5 bg-primary bg-gradient bg-opacity-75">
+          <p class="h3 text-center fw-bold py-4">{{ title }}</p>
+        
+          <div class="mb-3">
+            <input type="email" class="form-control" id="email" placeholder="Email" 
+              onkeyup="this.setAttribute('value', this.value);" [(ngModel)]="user.email" value="" name="email" required />
+          </div>
+          
+          <div class="mb-4">
+            <input type="password" class="form-control" id="password" placeholder="Password" 
+              onkeyup="this.setAttribute('value', this.value);" [(ngModel)]="user.password" value="" name="password" required />
+          </div>
+          
+          <div>
+            <button class="btn btn-sm btn-primary px-3" [disabled]='userlogin.form.invalid'>Login</button>
+            <hr>
+            <small class="text-white mb-0">For New User Registration</small><br>
+            <a routerLink="/usersignup" class="btn btn-sm btn-outline-light me-3 mt-2">Create Account</a>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>        
+</section>

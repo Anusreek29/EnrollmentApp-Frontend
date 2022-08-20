@@ -1,0 +1,24 @@
+<section class="container-fluid" *ngIf="adminCheck">
+    <div id="img-holder" class="row"></div>
+    <div class="container mt-5 py-5">
+       <div class="row justify-content-center">
+          <form class="form col-lg-4 px-5 border rounded"
+             #editStudent="ngForm" (ngSubmit)="studentEdit()">
+             <p class="h3 text-center fw-bold py-4">{{title}}</p>
+ 
+             <div class="row form-group mb-3">
+                <div class="col-4">
+                   <label for="role">Exit Mark</label>
+                </div>
+                <div class="col-8">
+                   <input type="text" class="form-control" [(ngModel)]="student.exitmark" name="exitmark" #exitmark="ngModel" />
+                </div>
+             </div>
+
+             <div class="mb-4">
+                <button type="submit" class="btn btn-primary" [disabled]='editStudent.invalid'>Update</button>
+             </div>
+          </form>                      
+       </div>
+    </div>        
+ </section>

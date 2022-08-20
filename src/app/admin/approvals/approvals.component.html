@@ -1,0 +1,27 @@
+<section id="students" class="container-fluid" *ngIf="adminCheck">
+  <div id="img-holder" class="row"></div>
+  <div id="title" class="container py-5">
+    <p class="h3 fw-bold text-center pb-4">{{title}}</p>
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Student</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let s of student">
+          <tr>
+            <th><i class="fa fa-user text-primary"></i></th>
+            <th>{{s.name}}</th>            
+            <td>
+              <a routerLink="/student/{{s._id}}" class="btn btn-sm btn-outline-primary text-center me-2" (click)="viewStudent(s._id)">View</a>
+              <a class="btn btn-sm btn-outline-danger text-center" (click)="approveStudent(s.email)">Approve</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>        
+</section>

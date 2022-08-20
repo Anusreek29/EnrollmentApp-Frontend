@@ -1,0 +1,13 @@
+<section id="services" class="container-fluid bg-light">
+    <div class="container">
+        <div class="row pt-5 pb-2">
+            <div class="col-6 col-md-2 d-flex justify-content-around text-primary pb-4" *ngFor="let service of services">
+                <span class="text-center">
+                    <i class="fa {{service.icon}} fs-2"></i>
+                    <p class="h5">{{service.count}}</p>
+                    <small>{{service.title1}}<br> {{service.title2}}</small>
+                </span>   
+            </div>
+        </div>
+    </div>
+</section>

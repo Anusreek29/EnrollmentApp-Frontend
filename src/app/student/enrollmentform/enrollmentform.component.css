@@ -1,0 +1,20 @@
+#img-holder{
+    /* background-image: url('../../../assets/img/enrollmentform-top-img.png');  */
+    background-image: url('../../../assets/img/enrollmentform-bg.jpg'); 
+    background-size: cover;
+    background-position: top;
+    height: 72rem;
+}
+
+img.img-animate{
+    -webkit-animation: moveUpDown 2s infinite  alternate;
+    animation: moveUpDown 2s infinite  alternate;
+}
+@keyframes moveUpDown{
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-8px); }
+}
+
+input.ng-invalid, select.ng-invalid{border-left: 2px solid red;}
+input.ng-valid, select.ng-valid{border-left: 2px solid green;}   
+input:focus, select:focus{border-left: none;}

@@ -1,0 +1,172 @@
+<section id="profile" class="container-fluid">
+    <div id="img-holder" class="row"></div>
+    <div id="title" class="container py-5">
+        <p class="h3 fw-bold text-center pb-4">{{title}}</p>
+
+        <div class="table-responsive margin-lg mt-2">
+            <table class="table table-bordered">
+                <thead class="text-center">
+                    <tr>
+                        <th colspan="2">
+                            <i class="fa fa-user text-primary text-center display-1"></i><br>
+                            <h5 class="text-uppercase fw-bold pt-2">{{student.name}}</h5>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>Student ID</th><td>{{student.id}}</td>
+                    </tr>
+                    <tr>
+                        <th>Email</th><td>{{student.email}}</td>
+                    </tr>
+                    <tr>
+                        <th>Phone</th><td>{{student.phone}}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"></td>
+                    </tr>
+                    <tr>
+                        <th colspan="2" class="bg-primary">
+                            <span class="row m-0">
+                                <span class="col-10 text-white">General Information</span>
+                                <span class="col-2">
+                                    <!-- <a routerLink="/edit-profile" class="btn btn-sm btn-outline-light px-4" 
+                                        (click)="editProfile(student._id)">
+                                        Edit
+                                    </a> - -->
+                                    <a class="btn btn-sm btn-outline-light px-4" 
+                                        data-bs-toggle="modal" data-bs-target="#editProfileModal">Edit</a>
+                                    <!-- <a class="btn btn-sm btn-outline-light px-4" (click)="editProfile()">Edit</a> -->
+                                </span>
+                            </span>
+                        </th>
+                    </tr>    
+                    <tr>
+                        <th>Address</th><td>{{student.address}}</td>
+                    </tr>
+                    <tr>
+                        <th>Qualification</th><td>{{student.qualification}}</td>
+                    </tr>
+                    <tr>
+                        <th>Pass Out</th><td>{{student.passout}}</td>
+                    </tr>
+                    <tr>
+                        <th>Skill Set</th><td>{{student.skillset}}</td>
+                    </tr>
+                    <tr>
+                        <th>Employment Status</th><td>{{student.employmentStatus}}</td>
+                    </tr>
+                    <tr>
+                        <th>Technology Training</th><td>{{student.technologyTraining}}</td>
+                    </tr>
+                    <tr>
+                        <th>Year</th><td>{{student.year}}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"></td>
+                    </tr>
+                    <tr>
+                        <th colspan="2" class="bg-primary">
+                            <span class="text-white">Course Details</span>
+                        </th>
+                    </tr>    
+                    <tr>
+                        <th>Course</th><td>{{student.course}}</td>
+                    </tr>
+                    <tr>
+                        <th>Exit Exam Mark</th><td>{{student.exitmark}}</td>
+                    </tr>                       
+                </tbody>
+            </table>
+        </div>        
+             
+    </div>        
+</section>
+
+<!-- Modal -->
+<div class="modal fade" id="editProfileModal" tabindex="-1" aria-labelledby="editProfileModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="fw-bold modal-title" id="editProfileModalLabel">Edit Profile</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form class="form" (ngSubmit)="updateStudent()" #editStudent="ngForm">
+                <!-- (ngSubmit)="profileEdit()"> -->
+
+                <div class="row form-group mb-3">
+                    <div class="col-4">
+                        <label for="role">Address</label>
+                    </div>
+                    <div class="col-8">
+                        <input type="text" class="form-control" [(ngModel)]="studentEdit.address" name="address" #address="ngModel" />
+                    </div>
+                </div>
+
+                 <div class="row form-group mb-3">
+                    <div class="col-4">
+                        <label for="role">Qualification</label>
+                    </div>
+                    <div class="col-8">
+                        <input type="text" class="form-control" [(ngModel)]="studentEdit.qualification" name="qualification" #qualification="ngModel" />
+                    </div>
+                </div>
+
+             <div class="row form-group mb-3">
+                <div class="col-4">
+                   <label for="role">Pass Out</label>
+                </div>
+                <div class="col-8">
+                   <input type="text" class="form-control" [(ngModel)]="studentEdit.passout" name="passout" #passout="ngModel" />
+                </div>
+             </div>
+
+             <div class="row form-group mb-3">
+                <div class="col-4">
+                   <label for="role">Skill Set</label>
+                </div>
+                <div class="col-8">
+                   <input type="text" class="form-control" [(ngModel)]="studentEdit.skillset" name="skillset" #skillset="ngModel" />
+                </div>
+             </div>
+
+             <div class="row form-group mb-3">
+                <div class="col-4">
+                   <label for="role">Employment Status</label>
+                </div>
+                <div class="col-8">
+                   <input type="text" class="form-control" [(ngModel)]="studentEdit.employmentStatus" name="employmentStatus" #employmentStatus="ngModel" />
+                </div>
+             </div>
+
+             <div class="row form-group mb-3">
+                <div class="col-4">
+                   <label for="role">Technology Training</label>
+                </div>
+                <div class="col-8">
+                   <input type="text" class="form-control" [(ngModel)]="studentEdit.technologyTraining" name="technologyTraining" #technologyTraining="ngModel" />
+                </div>
+             </div>
+             <div class="row form-group mb-3">
+                <div class="col-4">
+                   <label for="role">Year</label>
+                </div>
+                <div class="col-8">
+                   <input type="text" class="form-control" [(ngModel)]="studentEdit.year" name="year" #year="ngModel" />
+                </div>
+             </div> 
+
+             <div class="mb-4">
+               <button type="submit" class="btn btn-primary"  [disabled]='editStudent.invalid'>Update</button>
+            </div>
+         </form>       
+</div>        
+</div>
+<!-- <div class="modal-footer">
+<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+<button type="button" class="btn btn-primary">Save changes</button>
+</div> -->
+</div>
+</div>

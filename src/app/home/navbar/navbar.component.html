@@ -1,0 +1,58 @@
+<nav class="navbar navbar-expand-lg bg-light fixed-top">
+    <div class="container-fluid px-5">
+      <a class="navbar-brand" routerLink="">
+        <h2 class="text-uppercase fw-bold">
+            <span class="text-primary">ICT </span>
+            <span class="text-dark">Academy</span>
+        </h2>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item me-2">
+            <a class="nav-link active" aria-current="page" routerLink="/">Home</a>
+          </li>
+          <li class="nav-item me-2">
+            <a class="nav-link" routerLink="/courses" *ngIf="studentCheck">Courses</a>
+          </li>
+        </ul>
+        <div>
+          <a routerLink="/approvals" class="btn btn-sm btn-primary me-3 mt-2" *ngIf="adminCheck">
+            <i class="fa fa-server pe-2"></i>
+            For Approval
+          </a>
+          <a routerLink="/employers" class="btn btn-sm btn-primary me-3 mt-2" *ngIf="adminCheck">
+            <i class="fa fa-suitcase pe-2"></i>
+            Employers
+          </a>
+          <a routerLink="/students" class="btn btn-sm btn-primary me-3 mt-2"  *ngIf="adminCheck">
+            <i class="fa fa-users pe-2"></i>
+            Students
+          </a>
+          <a routerLink="/searchstudent" class="btn btn-sm btn-primary me-3 mt-2"  *ngIf="employerCheck">
+            <i class="fa fa-users pe-2"></i>
+            Search Students
+          </a>
+          <a routerLink="/myprofile" class="btn btn-sm btn-outline-primary text-center me-2 mt-2" 
+          *ngIf="studentCheck" (click)="viewProfile()">
+            <i class="fa fa-user pe-2" ></i>
+            My Profile
+          </a>
+          <a routerLink="/usersignup" class="btn btn-sm btn-outline-primary me-3 mt-2" *ngIf='!adminCheck &&!studentCheck &&!employerCheck'>
+            <i class="fa fa-user pe-2" ></i>
+            User Sign Up
+          </a>
+          <a routerLink="/userlogin"  class="btn btn-sm btn-outline-primary me-3 mt-2" *ngIf='!adminCheck &&!studentCheck &&!employerCheck'>
+            <i class="fa fa-user pe-2" ></i>
+            User Login
+          </a>
+          <a routerLink="/" class="btn btn-sm btn-primary me-3 mt-2" (click)="logoutUser()" *ngIf="adminCheck || employerCheck || studentCheck">
+              <i class="fa fa-sign-out pe-2" ></i>
+              Log Out
+            </a>
+        </div>
+      </div>
+    </div>
+  </nav>

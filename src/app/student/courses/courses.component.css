@@ -1,0 +1,6 @@
+#img-holder{
+    background-image: url('../../../assets/img/courses-banner.png'); 
+    background-size: cover;
+    background-position: center;
+    height: 18rem;
+}

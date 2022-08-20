@@ -1,0 +1,8 @@
+img.img-animate{
+  -webkit-animation: moveUpDown 2s infinite  alternate;
+  animation: moveUpDown 2s infinite  alternate;
+}
+@keyframes moveUpDown{
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-8px); }
+}

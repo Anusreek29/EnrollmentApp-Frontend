@@ -1,0 +1,67 @@
+<section class="container-fluid">
+  <div class="container mt-5 py-5">
+    <div class="row px-5 justify-content-center">
+      <form id="userForm" class="row"
+        [formGroup]="signUpForm" #signupform="ngForm" (ngSubmit)="AddUser()">  
+        <div class="col-lg-4 offset-lg-2 px-0 border">
+          <img src="../../assets/img/usersignup-top-left.jpg" class="img-fluid" alt="">
+          <p class="h3 text-center fw-bold py-2">{{ title }}</p>
+          <img src="../../assets/img/usersignup-banner.png" class="img-fluid img-animate pt-5 pb-4" alt="">
+          <img src="../../assets/img/usersignup-bottom-left.jpg" class="img-fluid" alt="">
+        </div>
+
+        <div class="col-lg-4 border px-0">
+          <img src="../../assets/img/usersignup-top-right.jpg" class="img-fluid" alt="">
+
+          <div class="px-5 py-3">            
+          <div class="mb-3">
+            <input type="text" class="form-control" placeholder="Name" 
+              formControlName="name" name="name" [(ngModel)]="adduser.name" required />
+          </div>
+            <div class="mb-3">
+              <input type="email" class="form-control" placeholder="Email" 
+                formControlName="email" name="email" [(ngModel)]="adduser.email" />
+              <div class="ps-2 text-secondary" style="font-size: 14px;" *ngIf="signUpForm.controls['email'].hasError('pattern')">
+                <small>Enter a valid email</small>
+              </div>
+            </div>
+            <div class="mb-3">
+              <input type="password" class="form-control" placeholder="Password" 
+                formControlName="password" name="password" [(ngModel)]="adduser.password" />
+                <div id="error" *ngIf="signUpForm.controls['password'].hasError('pattern')" 
+                  class="ps-2 text-secondary" style="font-size: 14px;">
+                  <small>Password should have a minimum length of 8 characters, an uppercase, lowercase and a number</small>
+                </div>
+            </div>
+            <div class="mb-3">
+              <input type="password" class="form-control" placeholder="Confirm Password" 
+                formControlName="confirmpassword" name="confirmpassword" required />
+                <div id="error" *ngIf="signUpForm.controls['confirmpassword'].getError('Mustmatch')!=null" 
+                  class="ps-2 text-secondary" style="font-size: 14px;">
+                  <small>Passwords do not match</small>
+                </div>
+            </div>
+            <div class="mb-3">
+              <select class="form-select text-secondary" formControlName="role" name="role" [(ngModel)]="adduser.role" required>
+                <option selected disabled value="">Select Role</option>
+                <option value="Employer">Employer</option>
+                <option value="Student">Student</option>
+              </select>
+            </div>  
+            <div class="mb-3">
+              <!-- <button class="btn btn-sm btn-primary px-3" [disabled]='signUpForm.invalid'>REGISTER</button> -->
+              <input class="btn btn-sm btn-primary px-3" type="submit" value="Register" [disabled]='signupform.invalid'>
+              <hr>
+              <small class="text-secondary mb-0">Already have an account</small><br>
+              <a routerLink="/userlogin" class="btn btn-sm btn-outline-secondary me-3 mt-1">Sign In</a>
+          </div>
+          </div>
+
+          <img src="../../assets/img/usersignup-bottom-right.jpg" class="img-fluid" alt="">
+          
+        </div>  
+        <div class="col-md-2"></div>
+      </form>           
+    </div>
+  </div>        
+</section>

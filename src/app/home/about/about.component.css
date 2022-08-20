@@ -1,0 +1,11 @@
+#about{
+    background-image: url('../../../assets/img/about-img-gradient.jpg');
+    background-size: cover;
+    opacity: 0.9;
+}
+
+@media only screen and (min-width: 996px){
+    #about img{
+        margin-top: -2rem; 
+        margin-bottom: -6rem;    
+}}

@@ -1,0 +1,29 @@
+<section id="employers" class="container-fluid" *ngIf="adminCheck">
+  <div id="img-holder" class="row"></div>
+  <div id="title" class="container py-5 ">
+    <p class="h3 fw-bold text-center pb-4">{{title}}</p>
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Employer</th>
+            <th colspan="4">Action</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let e of employer">
+          <tr>
+            <th><i class="fa fa-suitcase text-primary"></i></th>
+            <th>{{e.name}}</th>            
+            <td>
+              <a routerLink="/employer/{{e._id}}" class="btn btn-sm btn-outline-primary text-center me-2" 
+                (click)="viewEmployer(e._id)">View</a>
+              <a class="btn btn-sm btn-outline-danger text-center me-2" (click)="editEmployer(e._id)">Edit</a>
+              <a class="btn btn-sm btn-danger text-center" (click)="deleteEmployer(e._id)">Delete</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>        
+</section>

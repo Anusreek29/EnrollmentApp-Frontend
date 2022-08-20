@@ -1,0 +1,116 @@
+<section class="container-fluid">
+  <div id="img-holder" class="row"></div>
+  <!-- <div id="stripes" class="row">
+    <span id="stripeSpan1"></span>
+    <span id="stripeSpan2"></span>
+    <span id="stripeSpan3"></span>
+    <span id="stripeSpan4"></span>
+    <span id="stripeSpan5"></span>
+  </div> -->
+
+  <div class="container">
+    <div class="row justify-content-center">
+      <!-- <form id="studentEnroll" class="col-lg-4 px-5 border rounded"
+        [formGroup]="enrollmentForm" (ngSubmit)="onSubmit(enrollmentForm.value)"> -->
+      <form id="studentEnroll" class="col-lg-4 px-5 mb-5 border rounded bg-light bg-opacity-50" style="margin-top: -66rem"
+        [formGroup]="enrollmentForm" (ngSubmit)="Enroll()">
+        <img src="../../../assets/img/enrollmentform-banner.jpg" class="img-fluid img-animate pt-2" alt="">
+        <p class="h3 text-center fw-bold py-4">{{ title }}</p>
+
+        <div class="mb-3">
+          <input type="text" class="form-control" id="name" placeholder="Name" 
+            formControlName="name" name="name" [(ngModel)]="enrollstudent.name" required />
+        </div>
+        <div class="mb-3">
+          <input type="email" class="form-control" id="email" placeholder="Email" 
+            formControlName="email" name="email" [(ngModel)]="enrollstudent.email" />
+          <div class="ps-2 text-secondary" style="font-size: 14px;" *ngIf="enrollmentForm.controls['email'].hasError('pattern')">
+            <small>Enter a valid email</small>
+          </div>
+        </div>
+        <div class="mb-3">
+          <input type="tel" class="form-control" id="phone" placeholder="Phone" 
+            formControlName="phone" name="phone" [(ngModel)]="enrollstudent.phone" />
+          <div class="ps-2 text-secondary" style="font-size: 14px;" *ngIf="enrollmentForm.controls['phone'].hasError('pattern')">
+            <small>Enter a valid phone</small>
+          </div>  
+        </div>            
+        <div class="mb-3">
+          <input type="text" class="form-control" id="address" placeholder="Address" 
+            formControlName="address" name="address" [(ngModel)]="enrollstudent.address" required />
+        </div>
+        <div class="mb-3">
+          <select class="form-select text-secondary" 
+            formControlName="qualification" name="qualification" [(ngModel)]="enrollstudent.qualification" required>
+            <option selected disabled value="">Select Highest Qualification</option>
+            <option value="BE/ BTech">BE/ BTech</option>
+            <option value="BSc/ BCA">BSc/ BCA</option>
+            <option value="Diploma-CS">Diploma-CS</option>
+            <option value="ME/ MTech">ME/ MTech</option>
+            <option value="MSc/ MCA">MSc/ MCA</option>
+          </select>
+        </div>
+        <div class="mb-3">
+            <input type="number" min="1950" max="2023" class="form-control" id="passout" placeholder="Passout Year" 
+              formControlName="passout" name="passout" [(ngModel)]="enrollstudent.passout" required />
+          </div>
+          <div class="mb-3">
+            <input type="text" class="form-control" id="skillset" placeholder="Skill Set" 
+              formControlName="skillset" name="skillset" [(ngModel)]="enrollstudent.skillset" required />
+          </div>
+          <div class="mb-3">
+            <select class="form-select text-secondary" 
+                formControlName="employmentStatus" name="employmentStatus" [(ngModel)]="enrollstudent.employmentStatus" required>
+                <option selected disabled value="">Select Employment Status</option>
+                <option value="Student">Student</option>
+                <option value="Employed">Employed</option>
+                <option value="Unemployed">Unemployed</option>
+            </select>
+        </div>
+        <div class="mb-3">
+          <input type="text" class="form-control" id="technology" placeholder="Technology Training" 
+            formControlName="technology" name="technology" [(ngModel)]="enrollstudent.technologyTraining" required />
+        </div>
+        <div class="mb-3">
+          <input type="number" min="1950" max="2023" class="form-control" id="year" placeholder="Year" 
+            formControlName="year" name="year" [(ngModel)]="enrollstudent.year" required />
+        </div>
+        <div class="mb-3">
+          <select class="form-select text-secondary"
+            formControlName="course" name="course" [(ngModel)]="enrollstudent.course" required>
+            <option selected disabled value="">Select Course</option>
+            <option value="Data Science & Machine Learning">Data Science & Machine Learning</option>
+            <option value="Full Stack Development - MEAN">Full Stack Development - MEAN</option>
+            <option value="Software Testing">Software Testing</option>
+            <option value="Data Science & Analytics">Data Science & Analytics</option>
+            <option value="Robotic Process Automation">Robotic Process Automation</option>
+            <option value="Cyber Security Analyst">Cyber Security Analyst</option>
+            <option value="Digital Marketing">Digital Marketing</option>
+            <option value="Full Stack Development - MERN">Full Stack Development - MERN</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <input type="number" class="form-control" id="fee" placeholder="Course Fee" formControlName="fee" name="fee" [(ngModel)]="enrollstudent.fee" required />
+          <!-- <input type="text" class="form-control" id="fee" placeholder="Course Fee" formControlName="fee" name="fee"  [(ngModel)]="enrollstudent.fee" *ngIf="enrollstudent.course == ''" />
+          <input type="text" class="form-control" id="fee" [(ngModel)]="enrollstudent.fee" *ngIf="enrollstudent.course == 'Data Science & Machine Learning'" value="30000" />
+          <input type="text" class="form-control" id="fee" [(ngModel)]="enrollstudent.fee" *ngIf="enrollstudent.course == 'Full Stack Development - MEAN'" value="25000" />
+          <input type="text" class="form-control" id="fee" [(ngModel)]="enrollstudent.fee" *ngIf="enrollstudent.course == 'Software Testing'" value="20000" />
+          <input type="text" class="form-control" id="fee" [(ngModel)]="enrollstudent.fee" *ngIf="enrollstudent.course == 'Data Science & Analytics'" value="30000" />
+          <input type="text" class="form-control" id="fee" [(ngModel)]="enrollstudent.fee" *ngIf="enrollstudent.course == 'Robotic Process Automation'" value="28000" />
+          <input type="text" class="form-control" id="fee" [(ngModel)]="enrollstudent.fee" *ngIf="enrollstudent.course == 'Cyber Security Analyst'" value="24000" />
+          <input type="text" class="form-control" id="fee" [(ngModel)]="enrollstudent.fee" *ngIf="enrollstudent.course == 'Digital Marketing'" value="22000" />
+          <input type="text" class="form-control" id="fee" [(ngModel)]="enrollstudent.fee" *ngIf="enrollstudent.course == 'Full Stack Development - MERN'" value="25000" /> -->
+        </div>            
+        <div class="mb-4">
+          <input type="file" class="form-control" id="image" placeholder="Upload Photo" 
+            formControlName='image' name="image" [(ngModel)]="enrollstudent.image" required/>
+        </div>
+        <div class="mb-4">
+          <!-- <button class="btn btn-sm btn-primary px-3" [disabled]='enrollmentForm.invalid'>REGISTER</button> -->
+          <input class="btn btn-sm btn-primary px-3" type="submit" value="Register" [disabled]='enrollmentForm.invalid'>
+        </div>
+      </form>
+    </div>
+  </div>  
+
+</section>

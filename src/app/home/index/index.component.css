@@ -1,0 +1,26 @@
+#banner .row{
+    background-image: url('../../../assets/img/banner-img.jpg');
+    background-size: cover;
+}
+#banner-text{
+    margin-top: 10rem;
+    display: inline-block;
+}
+#banner-text h1{
+    font-size: 60px;
+    animation: appear 6s 1;
+}
+@keyframes appear{
+    0%{opacity: 0;}
+    20%{opacity: 1;}
+    80%{opacity: 1;}
+    100%{opacity: 1;}
+}
+#banner-text h1 span{animation: slide 6s 1;}
+@keyframes slide{
+    0%{margin-left:-80%;}
+    20%{margin-left:-80%;}
+    35%{margin-left:0px;}
+    100%{margin-left:0px;}
+}
+#banner-img{margin-top: 6rem;}

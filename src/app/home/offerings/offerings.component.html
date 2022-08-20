@@ -1,0 +1,14 @@
+<section class="container py-5" >
+  <p class="display-5 text-center text-capitalize pb-4">current offerings</p>
+  <div class="row row-cols-1 row-cols-lg-4 row-cols-md-3 g-4">
+    <div class="col wrapper" *ngFor="let course of courses">
+      <img src="{{course.image}}" class="img-thumbnail" alt="">
+      <div class="center">
+        <a routerLink="/courses" class="btn btn-sm btn-primary mt-2" *ngIf="studentCheck">Know more</a>
+      </div>
+      <div class="text-center text-secondary py-2">
+        <small class="fw-bold">{{course.technology}}</small>
+      </div>
+    </div>
+  </div>
+</section>

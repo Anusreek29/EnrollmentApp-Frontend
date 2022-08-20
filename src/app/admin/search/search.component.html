@@ -1,0 +1,43 @@
+<section id="search" class="container-fluid margin-top-80">
+  <div class="col-sm-12 row">
+    <div class="col-sm-9">
+      <!-- <h4>Search Students</h4> -->
+  </div>
+    <div class="col-sm-2">
+      <input type="text" id="myInput" [(ngModel)]="page.searchText" placeholder="Search">
+  </div>
+  <div class="col-sm-1">
+    <button class="btn btn-sm btn-danger pull-right" (click)="reportGenerate()"><span class="fa fa-file-pdf-o ml-1">&nbsp;&nbsp;Download</span></button>
+</div>
+  </div>
+  <div id="tableContent" class="table-responsive" #tableContent>
+    <table class="table table-striped" style="font-size:12px;">
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Phone</th>
+            <th scope="col">Qulification</th>
+            <th scope="col">Course</th>
+            <th scope="col">Passout Year</th>
+            <th scope="col">Employment Status</th>
+            <th scope="col">Exit Exam Mark</th>
+            <th scope="col">Address</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let data of page.data | searchPipe : page.searchText">
+            <td>{{data.name}}</td>
+            <td>{{data.email}}</td>
+            <td>{{data.phone}}</td>
+            <td>{{data.qualification}}</td>
+            <td>{{data.course}}</td>
+            <td>{{data.passout}}</td>
+            <td>{{data.employmentStatus}}</td>
+            <td>{{data.exitmark}}</td>
+            <td>{{data.address}}</td>
+          </tr>
+        </tbody>
+    </table>
+  </div>
+</section>

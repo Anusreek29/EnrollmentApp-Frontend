@@ -1,0 +1,10 @@
+#img-holder{
+    background-image: url('../../../assets/img/students-banner.jpg'); 
+    background-size: cover;
+    background-position: center;
+    height: 12rem;
+}
+
+@media only screen and (min-width: 1000px) {
+    .margin-lg {margin: 0 18rem;}
+  }

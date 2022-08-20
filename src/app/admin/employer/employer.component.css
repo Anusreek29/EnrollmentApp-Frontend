@@ -1,0 +1,5 @@
+#img-holder{
+    background-image: url('../../../assets/img/employers-banner.jpg'); 
+    background-size: cover;
+    height: 18rem;
+}
